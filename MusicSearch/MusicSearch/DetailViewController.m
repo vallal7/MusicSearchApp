@@ -73,4 +73,14 @@
     }];
 }
 
+/**
+ * @name viewWillDisappear
+ * @propertyOf DetailViewController
+ * @description
+ * Once the view disappears, clear the lyrics text
+ */
+-(void)viewWillDisappear:(BOOL)animated {
+    self.lyricsTextView.text = @"";
+}
+
 @end
