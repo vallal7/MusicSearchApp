@@ -10,11 +10,6 @@
 
 @implementation SearchTrackModel
 
-
--(void)getAllTack{
-    //make the service class call
-}
-
 -(void)parseData:(NSDictionary *)responseDict{
     self.trackName = [responseDict objectForKey:TrackNameDictKey];
     self.albumName = [responseDict objectForKey:AlbumNameDictKey];
