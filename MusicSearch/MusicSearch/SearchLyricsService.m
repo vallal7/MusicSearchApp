@@ -35,7 +35,7 @@
     }
 }
 
--(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict{
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
     if([elementName caseInsensitiveCompare:XMLLyricsTag] == NSOrderedSame) {
         trackLyrics = true;
     } else {
@@ -51,13 +51,18 @@
         updateUIBlock(lyrics);
     }
 }
--(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     if(trackLyrics) {
         if (lyricsString == nil){
             lyricsString = [[NSString alloc]init];
         }
         lyricsString = [lyricsString stringByAppendingString:string];
     }
+}
+
+-(void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+    NSLog(@"Lyrics Service XML Parser failed");
 }
 
 @end
