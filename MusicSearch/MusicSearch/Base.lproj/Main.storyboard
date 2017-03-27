@@ -147,7 +147,7 @@
                         <outlet property="albumNameLabel" destination="fKT-Lu-x4D" id="hzH-H4-uuR"/>
                         <outlet property="animatingIndicator" destination="fGc-ub-1qm" id="R8K-FD-il1"/>
                         <outlet property="artistNameLabel" destination="VS9-gk-5EK" id="Gec-qS-gYX"/>
-                        <outlet property="lyrics" destination="til-hn-Ate" id="DlX-UW-YEY"/>
+                        <outlet property="lyricsTextView" destination="til-hn-Ate" id="w41-Ae-Bri"/>
                         <outlet property="trackImageView" destination="yau-Oc-0uD" id="x6b-WR-e45"/>
                         <outlet property="trackNameLabel" destination="lZb-ai-12y" id="jFi-9t-xZT"/>
                     </connections>

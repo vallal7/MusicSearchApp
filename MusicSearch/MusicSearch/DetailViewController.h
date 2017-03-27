@@ -10,16 +10,16 @@
 
 @interface DetailViewController : UIViewController
 
-@property (nonatomic,retain)NSString *trackName;
-@property (nonatomic,retain)NSString *albumName;
-@property (nonatomic,retain)NSString *artistName;
-@property (nonatomic,retain)UIImage *trackImage;
+@property (nonatomic,retain) NSString *trackName;
+@property (nonatomic,retain) NSString *albumName;
+@property (nonatomic,retain) NSString *artistName;
+@property (nonatomic,retain) UIImage *trackImage;
 
-@property(nonatomic, weak) IBOutlet UILabel *trackNameLabel;
-@property(nonatomic, weak) IBOutlet UILabel *artistNameLabel;
-@property(nonatomic, weak) IBOutlet UILabel *albumNameLabel;
-@property(nonatomic, weak) IBOutlet UIImageView *trackImageView;
-@property(nonatomic, weak) IBOutlet UITextView *lyrics;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *animatingIndicator;
+@property (nonatomic, weak) IBOutlet UILabel *trackNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *artistNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *albumNameLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *trackImageView;
+@property (nonatomic, weak) IBOutlet UITextView *lyricsTextView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *animatingIndicator;
 
 @end
