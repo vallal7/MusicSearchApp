@@ -86,9 +86,6 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZb-ai-12y">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="249" id="PqM-Xf-JBj"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -96,7 +93,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKT-Lu-x4D">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Wp4-LP-B8O"/>
-                                    <constraint firstAttribute="width" constant="249" id="aSv-JN-wup"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -105,7 +101,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VS9-gk-5EK">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="2ur-Uz-Fay"/>
-                                    <constraint firstAttribute="width" constant="249" id="iav-mK-zeX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -127,8 +122,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="VS9-gk-5EK" secondAttribute="trailing" constant="20" id="7f4-Od-hjl"/>
                             <constraint firstItem="fKT-Lu-x4D" firstAttribute="top" secondItem="lZb-ai-12y" secondAttribute="bottom" constant="1" id="8Ck-mL-YpL"/>
                             <constraint firstItem="lZb-ai-12y" firstAttribute="top" secondItem="28B-7Y-m20" secondAttribute="bottom" constant="12" id="8GN-nA-tMK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lZb-ai-12y" secondAttribute="trailing" constant="20" id="Ef2-hf-mjT"/>
                             <constraint firstItem="til-hn-Ate" firstAttribute="top" secondItem="VS9-gk-5EK" secondAttribute="bottom" constant="29.5" id="FqW-Cl-VSj"/>
                             <constraint firstItem="fpL-kt-LLR" firstAttribute="top" secondItem="til-hn-Ate" secondAttribute="bottom" constant="87" id="JbL-e6-AMm"/>
                             <constraint firstItem="fGc-ub-1qm" firstAttribute="leading" secondItem="Plx-X0-qMN" secondAttribute="leadingMargin" constant="145" id="KqP-In-R9h"/>
@@ -139,6 +136,7 @@
                             <constraint firstItem="VS9-gk-5EK" firstAttribute="leading" secondItem="yau-Oc-0uD" secondAttribute="trailing" constant="26" id="joK-ga-Tvd"/>
                             <constraint firstItem="fGc-ub-1qm" firstAttribute="top" secondItem="VS9-gk-5EK" secondAttribute="bottom" constant="166.5" id="kOK-K1-pra"/>
                             <constraint firstItem="VS9-gk-5EK" firstAttribute="top" secondItem="fKT-Lu-x4D" secondAttribute="bottom" constant="1" id="p8G-SC-v66"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fKT-Lu-x4D" secondAttribute="trailing" constant="20" id="sJM-i3-iD7"/>
                             <constraint firstItem="fKT-Lu-x4D" firstAttribute="leading" secondItem="yau-Oc-0uD" secondAttribute="trailing" constant="26" id="sgO-aJ-6FS"/>
                             <constraint firstItem="yau-Oc-0uD" firstAttribute="leading" secondItem="Plx-X0-qMN" secondAttribute="leading" constant="15" id="ybx-ix-xai"/>
                         </constraints>
