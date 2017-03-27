@@ -35,6 +35,13 @@
 - (void)testExample {
     // Use recording to get started writing UI tests.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *searchbar = [[[[[[app.otherElements containingType:XCUIElementTypeNavigationBar identifier:@"Music Search"] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeSearchField].element;
+    [searchbar tap];
+    
+    [searchbar typeText:@"shape\r"];
+
 }
 
 @end
