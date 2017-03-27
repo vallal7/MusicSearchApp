@@ -11,14 +11,25 @@
 
 @interface SearchLyricsService ()
 {
+    // flag to track the lyrics xml while parsing
     BOOL trackLyrics;
+    // the final constructed lyrics string
     NSString *lyricsString;
+    // a copy of the callback block object, so as to trigger it in the parser delegate methods
     void (^updateUIBlock)(LyricsModel *lyrics);
 }
 @end
 
 @implementation SearchLyricsService
 
+/**
+ * @name callLyricsService
+ * @propertyOf SearchLyricsService
+ * @param searchParameters updateUI
+ * @description
+ * Make the service call after configuring the URL
+ * If response is valid, serialize the json data and parse it
+ */
 -(void)callLyricsService:(NSArray*)searchParameters callBack:(void (^)(LyricsModel *lyrics))updateUI {
     {
         NSURL *url = [ApiConfigProvider configureLyricsSearch:searchParameters];
@@ -32,6 +43,7 @@
                 [myParser setShouldResolveExternalEntities: YES];
                 [myParser parse];
             } else {
+                // If response is invalid, handle the app accordingly
                 LyricsModel *lyrics = [[LyricsModel alloc]init];
                 [lyrics parseData:LyricsNotFoundString];
                 updateUIBlock(lyrics);
@@ -41,7 +53,10 @@
     }
 }
 
+#pragma mark - XML Parser Delegate methods
+
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
+    // Set the track lyrics flag when the current parsed element is Lyrics
     if([elementName caseInsensitiveCompare:XMLLyricsTag] == NSOrderedSame) {
         trackLyrics = true;
     } else {
@@ -51,6 +66,7 @@
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     if([elementName caseInsensitiveCompare:XMLLyricsTag] == NSOrderedSame) {
+        // As parsing of Lyrics XML Tag has ended, stop the track flag and trigger the callback with the updated object
         trackLyrics = false;
         LyricsModel *lyrics = [[LyricsModel alloc]init];
         [lyrics parseData:lyricsString];
@@ -59,6 +75,7 @@
 }
 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+    // Capture the tag content when the track lyrics flag is true
     if(trackLyrics) {
         if (lyricsString == nil){
             lyricsString = [[NSString alloc]init];

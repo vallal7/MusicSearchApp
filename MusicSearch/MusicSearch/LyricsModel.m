@@ -11,6 +11,7 @@
 @implementation LyricsModel
 
 -(void)parseData:(NSString *)lyricsText{
+    // If no Lyrics data was found, update the lyrics model object accordingly
     if([lyricsText caseInsensitiveCompare:LyricsNotFoundString] == NSOrderedSame) {
         self.lyricsContent = LyricsNotFoundStringMesage;
     } else {

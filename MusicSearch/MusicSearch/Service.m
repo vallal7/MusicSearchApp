@@ -16,9 +16,17 @@
 
 @implementation Service
 
+/**
+ * @name init
+ * @propertyOf Service
+ * @description
+ * Get an instance of the shared session
+ */
 -(instancetype)init {
     _session = [NSURLSession sharedSession];
     return self;
 }
+
+// Handle Any app specific changes like header configuration, current service call cancelling
 
 @end
