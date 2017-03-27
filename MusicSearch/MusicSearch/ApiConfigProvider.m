@@ -32,7 +32,7 @@
     } @catch (NSException *exception) {
         NSLog(@"Strings Append Exception -%@",exception);
     } @finally {
-        NSLog(@"Strings could not be appended to the URL");
+        NSLog(@"Strings Append Complete");
     }
     NSString *encodedString = [stringUrl stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
     
