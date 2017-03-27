@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-static NSString *searchLyricsUrl=@"http://lyrics.wikia.com/api.php?func=getSong&artist=Tom+Waits&song=new+coat+of+paint&fmt=json";
 
 @interface Service : NSObject
 

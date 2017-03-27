@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		950623451E89854C00EFFA15 /* SearchTrackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 950623421E89854C00EFFA15 /* SearchTrackModel.m */; };
+		950623461E89854D00EFFA15 /* LyricsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 950623441E89854C00EFFA15 /* LyricsModel.m */; };
 		95BB833A1E86CFD1002BFBBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB83391E86CFD1002BFBBA /* main.m */; };
 		95BB833D1E86CFD1002BFBBA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB833C1E86CFD1002BFBBA /* AppDelegate.m */; };
 		95BB83401E86CFD1002BFBBA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB833F1E86CFD1002BFBBA /* ViewController.m */; };
@@ -16,10 +18,7 @@
 		95BB834B1E86CFD1002BFBBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BB83491E86CFD1002BFBBA /* LaunchScreen.storyboard */; };
 		95BB83561E86CFD2002BFBBA /* MusicSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB83551E86CFD2002BFBBA /* MusicSearchTests.m */; };
 		95BB83611E86CFD2002BFBBA /* MusicSearchUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB83601E86CFD2002BFBBA /* MusicSearchUITests.m */; };
-		95BB83701E86D5E3002BFBBA /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB836F1E86D5E3002BFBBA /* SearchTableViewCell.m */; };
-		95BB83721E86E025002BFBBA /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95BB83711E86E025002BFBBA /* SearchTableViewCell.xib */; };
 		95BB83781E86FD6A002BFBBA /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB83771E86FD6A002BFBBA /* Service.m */; };
-		95BB837B1E870C12002BFBBA /* TrackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB837A1E870C12002BFBBA /* TrackModel.m */; };
 		95BB837E1E8710C5002BFBBA /* SearchTrackService.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB837D1E8710C5002BFBBA /* SearchTrackService.m */; };
 		95BB83811E8710D6002BFBBA /* SearchLyricsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB83801E8710D6002BFBBA /* SearchLyricsService.m */; };
 		95BB83871E8726AC002BFBBA /* ApiConfigProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BB83861E8726AC002BFBBA /* ApiConfigProvider.m */; };
@@ -44,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		950623401E89839200EFFA15 /* MusicSearch-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicSearch-prefix.pch"; sourceTree = "<group>"; };
+		950623411E89854C00EFFA15 /* SearchTrackModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTrackModel.h; sourceTree = "<group>"; };
+		950623421E89854C00EFFA15 /* SearchTrackModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTrackModel.m; sourceTree = "<group>"; };
+		950623431E89854C00EFFA15 /* LyricsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricsModel.h; sourceTree = "<group>"; };
+		950623441E89854C00EFFA15 /* LyricsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricsModel.m; sourceTree = "<group>"; };
 		95BB83351E86CFD1002BFBBA /* MusicSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BB83391E86CFD1002BFBBA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95BB833B1E86CFD1002BFBBA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,13 +65,8 @@
 		95BB835C1E86CFD2002BFBBA /* MusicSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BB83601E86CFD2002BFBBA /* MusicSearchUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicSearchUITests.m; sourceTree = "<group>"; };
 		95BB83621E86CFD2002BFBBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95BB836E1E86D5E3002BFBBA /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
-		95BB836F1E86D5E3002BFBBA /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
-		95BB83711E86E025002BFBBA /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		95BB83761E86FD6A002BFBBA /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
 		95BB83771E86FD6A002BFBBA /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
-		95BB83791E870C12002BFBBA /* TrackModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackModel.h; sourceTree = "<group>"; };
-		95BB837A1E870C12002BFBBA /* TrackModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackModel.m; sourceTree = "<group>"; };
 		95BB837C1E8710C5002BFBBA /* SearchTrackService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTrackService.h; sourceTree = "<group>"; };
 		95BB837D1E8710C5002BFBBA /* SearchTrackService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTrackService.m; sourceTree = "<group>"; };
 		95BB837F1E8710D6002BFBBA /* SearchLyricsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchLyricsService.h; sourceTree = "<group>"; };
@@ -129,7 +128,6 @@
 			children = (
 				95BB83751E86FD35002BFBBA /* Services */,
 				95BB83741E86FD2A002BFBBA /* Model */,
-				95BB83731E86FD15002BFBBA /* TableViewCell */,
 				95BB833B1E86CFD1002BFBBA /* AppDelegate.h */,
 				95BB833C1E86CFD1002BFBBA /* AppDelegate.m */,
 				95BB833E1E86CFD1002BFBBA /* ViewController.h */,
@@ -141,6 +139,7 @@
 				95BB83491E86CFD1002BFBBA /* LaunchScreen.storyboard */,
 				95BB834C1E86CFD1002BFBBA /* Info.plist */,
 				95BB83441E86CFD1002BFBBA /* MusicSearch.xcdatamodeld */,
+				950623401E89839200EFFA15 /* MusicSearch-prefix.pch */,
 				95BB83381E86CFD1002BFBBA /* Supporting Files */,
 			);
 			path = MusicSearch;
@@ -172,21 +171,13 @@
 			path = MusicSearchUITests;
 			sourceTree = "<group>";
 		};
-		95BB83731E86FD15002BFBBA /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				95BB836E1E86D5E3002BFBBA /* SearchTableViewCell.h */,
-				95BB836F1E86D5E3002BFBBA /* SearchTableViewCell.m */,
-				95BB83711E86E025002BFBBA /* SearchTableViewCell.xib */,
-			);
-			name = TableViewCell;
-			sourceTree = "<group>";
-		};
 		95BB83741E86FD2A002BFBBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				95BB83791E870C12002BFBBA /* TrackModel.h */,
-				95BB837A1E870C12002BFBBA /* TrackModel.m */,
+				950623411E89854C00EFFA15 /* SearchTrackModel.h */,
+				950623421E89854C00EFFA15 /* SearchTrackModel.m */,
+				950623431E89854C00EFFA15 /* LyricsModel.h */,
+				950623441E89854C00EFFA15 /* LyricsModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -314,7 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				95BB834B1E86CFD1002BFBBA /* LaunchScreen.storyboard in Resources */,
-				95BB83721E86E025002BFBBA /* SearchTableViewCell.xib in Resources */,
 				95BB83481E86CFD1002BFBBA /* Assets.xcassets in Resources */,
 				95BB83431E86CFD1002BFBBA /* Main.storyboard in Resources */,
 			);
@@ -342,16 +332,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				95BB83401E86CFD1002BFBBA /* ViewController.m in Sources */,
-				95BB837B1E870C12002BFBBA /* TrackModel.m in Sources */,
 				95BB833D1E86CFD1002BFBBA /* AppDelegate.m in Sources */,
 				95BB83811E8710D6002BFBBA /* SearchLyricsService.m in Sources */,
 				95BB837E1E8710C5002BFBBA /* SearchTrackService.m in Sources */,
+				950623451E89854C00EFFA15 /* SearchTrackModel.m in Sources */,
 				95BB833A1E86CFD1002BFBBA /* main.m in Sources */,
 				95BB83461E86CFD1002BFBBA /* MusicSearch.xcdatamodeld in Sources */,
 				95BB838A1E874DAB002BFBBA /* DetailViewController.m in Sources */,
 				95BB83871E8726AC002BFBBA /* ApiConfigProvider.m in Sources */,
-				95BB83701E86D5E3002BFBBA /* SearchTableViewCell.m in Sources */,
 				95BB83781E86FD6A002BFBBA /* Service.m in Sources */,
+				950623461E89854D00EFFA15 /* LyricsModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +488,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MusicSearch/MusicSearch-prefix.pch";
 				INFOPLIST_FILE = MusicSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = arwin.MusicSearch;
@@ -509,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MusicSearch/MusicSearch-prefix.pch";
 				INFOPLIST_FILE = MusicSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = arwin.MusicSearch;
@@ -581,6 +573,7 @@
 				95BB83671E86CFD2002BFBBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95BB83681E86CFD2002BFBBA /* Build configuration list for PBXNativeTarget "MusicSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -589,6 +582,7 @@
 				95BB836A1E86CFD2002BFBBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95BB836B1E86CFD2002BFBBA /* Build configuration list for PBXNativeTarget "MusicSearchUITests" */ = {
 			isa = XCConfigurationList;
@@ -597,6 +591,7 @@
 				95BB836D1E86CFD2002BFBBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

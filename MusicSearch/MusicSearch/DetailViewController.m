@@ -8,9 +8,10 @@
 
 #import "DetailViewController.h"
 #import "SearchLyricsService.h"
+#import "LyricsModel.h"
+
 @interface DetailViewController ()
 
-@property (nonatomic, retain)UITextView *lyrics;
 @property (nonatomic, retain)SearchLyricsService *lyricsService;
 
 @end
@@ -19,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = LyricsScreenTitle;
     // Do any additional setup after loading the view.
 }
 
@@ -37,31 +39,13 @@
     }
     __block DetailViewController *weakSelf = self;
     NSArray *parametersArray = [NSArray arrayWithObjects:self.artistName,self.trackName, nil];
-    
-    [self.lyricsService callLyricsService:parametersArray callBack:^(NSMutableArray *arr){
-        if (arr.count > 0) {
-            /*
-            weakSelf.searchResultsArray = arr;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.searchTableView reloadData];
-                [weakSelf.searchTableView setContentOffset:CGPointZero animated:NO];
-            });
-             */
-        } else {
-            
-        }
+    [self.animatingIndicator startAnimating];
+    [self.lyricsService callLyricsService:parametersArray callBack:^(LyricsModel *lyrics) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.lyrics.text = [NSString stringWithFormat:@"%@", lyrics.lyricsContent];
+            [weakSelf.animatingIndicator stopAnimating];
+        });
     }];
-    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

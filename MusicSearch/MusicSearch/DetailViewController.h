@@ -19,5 +19,7 @@
 @property(nonatomic, weak) IBOutlet UILabel *artistNameLabel;
 @property(nonatomic, weak) IBOutlet UILabel *albumNameLabel;
 @property(nonatomic, weak) IBOutlet UIImageView *trackImageView;
+@property(nonatomic, weak) IBOutlet UITextView *lyrics;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *animatingIndicator;
 
 @end

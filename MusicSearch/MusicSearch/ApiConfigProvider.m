@@ -7,7 +7,6 @@
 //
 
 #import "ApiConfigProvider.h"
-#import "Constants.h"
 
 @implementation ApiConfigProvider
 
@@ -22,7 +21,7 @@
 
 +(NSURL*)appendStringWithParameters:(NSArray*)attributeArray with:(NSString*)stringUrl {
     for (NSString *str in attributeArray){
-        NSRange rOriginal = [stringUrl rangeOfString: @"$"];
+        NSRange rOriginal = [stringUrl rangeOfString: URLParametersSeparator];
         if (NSNotFound != rOriginal.location) {
             stringUrl = [stringUrl
                         stringByReplacingCharactersInRange: rOriginal

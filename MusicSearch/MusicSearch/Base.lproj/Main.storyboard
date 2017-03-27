@@ -3,10 +3,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Music Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -15,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AkO-8S-hlN">
@@ -30,24 +31,33 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X7J-pF-8g7">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="0Fn-9z-loJ"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="mqK-el-IhX"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gUI-fg-FEq">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="YkK-tQ-5EI"/>
+                                    <constraint firstAttribute="width" constant="37" id="mHA-nU-snG"/>
+                                </constraints>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="gUI-fg-FEq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0Zj-Z9-FGd"/>
                             <constraint firstAttribute="trailing" secondItem="X7J-pF-8g7" secondAttribute="trailing" id="8hD-t3-fOk"/>
                             <constraint firstItem="X7J-pF-8g7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Fx3-oe-xgX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X7J-pF-8g7" secondAttribute="bottom" id="a68-he-oRA"/>
+                            <constraint firstItem="gUI-fg-FEq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cHL-IM-MdL"/>
                             <constraint firstItem="AkO-8S-hlN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nu0-Db-Fg0"/>
                             <constraint firstAttribute="trailing" secondItem="AkO-8S-hlN" secondAttribute="trailing" id="uag-2R-tn2"/>
                             <constraint firstItem="X7J-pF-8g7" firstAttribute="top" secondItem="AkO-8S-hlN" secondAttribute="bottom" id="vhC-xj-ycJ"/>
                             <constraint firstItem="AkO-8S-hlN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="z6a-fc-Do2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5xU-49-rXG"/>
+                    <navigationItem key="navigationItem" title="Music Search" id="5xU-49-rXG"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="gUI-fg-FEq" id="82d-61-wkE"/>
                         <outlet property="searchBar" destination="AkO-8S-hlN" id="sOM-0s-GNo"/>
                         <outlet property="searchTableView" destination="X7J-pF-8g7" id="siV-b7-7ug"/>
                         <segue destination="tsq-la-W4G" kind="show" identifier="detailSegue" id="4Dm-mi-m0d"/>
@@ -66,7 +76,7 @@
                         <viewControllerLayoutGuide type="bottom" id="fpL-kt-LLR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Plx-X0-qMN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yau-Oc-0uD">
@@ -101,22 +111,43 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="til-hn-Ate">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fGc-ub-1qm">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="Gxw-am-56B"/>
+                                    <constraint firstAttribute="width" constant="37" id="afa-bl-mpI"/>
+                                </constraints>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fKT-Lu-x4D" firstAttribute="top" secondItem="lZb-ai-12y" secondAttribute="bottom" constant="1" id="8Ck-mL-YpL"/>
                             <constraint firstItem="lZb-ai-12y" firstAttribute="top" secondItem="28B-7Y-m20" secondAttribute="bottom" constant="12" id="8GN-nA-tMK"/>
+                            <constraint firstItem="til-hn-Ate" firstAttribute="top" secondItem="VS9-gk-5EK" secondAttribute="bottom" constant="29.5" id="FqW-Cl-VSj"/>
+                            <constraint firstItem="fpL-kt-LLR" firstAttribute="top" secondItem="til-hn-Ate" secondAttribute="bottom" constant="87" id="JbL-e6-AMm"/>
+                            <constraint firstItem="fGc-ub-1qm" firstAttribute="leading" secondItem="Plx-X0-qMN" secondAttribute="leadingMargin" constant="145" id="KqP-In-R9h"/>
                             <constraint firstItem="yau-Oc-0uD" firstAttribute="top" secondItem="28B-7Y-m20" secondAttribute="bottom" constant="16" id="ZVW-Df-zEQ"/>
-                            <constraint firstItem="lZb-ai-12y" firstAttribute="leading" secondItem="yau-Oc-0uD" secondAttribute="trailing" constant="1" id="hxp-73-3Hm"/>
-                            <constraint firstItem="VS9-gk-5EK" firstAttribute="leading" secondItem="yau-Oc-0uD" secondAttribute="trailing" constant="1" id="joK-ga-Tvd"/>
+                            <constraint firstItem="til-hn-Ate" firstAttribute="leading" secondItem="Plx-X0-qMN" secondAttribute="leadingMargin" id="cxv-b4-gjJ"/>
+                            <constraint firstItem="lZb-ai-12y" firstAttribute="leading" secondItem="yau-Oc-0uD" secondAttribute="trailing" constant="26" id="hxp-73-3Hm"/>
+                            <constraint firstItem="til-hn-Ate" firstAttribute="trailing" secondItem="Plx-X0-qMN" secondAttribute="trailingMargin" id="isH-M9-5gv"/>
+                            <constraint firstItem="VS9-gk-5EK" firstAttribute="leading" secondItem="yau-Oc-0uD" secondAttribute="trailing" constant="26" id="joK-ga-Tvd"/>
+                            <constraint firstItem="fGc-ub-1qm" firstAttribute="top" secondItem="VS9-gk-5EK" secondAttribute="bottom" constant="166.5" id="kOK-K1-pra"/>
                             <constraint firstItem="VS9-gk-5EK" firstAttribute="top" secondItem="fKT-Lu-x4D" secondAttribute="bottom" constant="1" id="p8G-SC-v66"/>
-                            <constraint firstItem="fKT-Lu-x4D" firstAttribute="leading" secondItem="yau-Oc-0uD" secondAttribute="trailing" constant="1" id="sgO-aJ-6FS"/>
+                            <constraint firstItem="fKT-Lu-x4D" firstAttribute="leading" secondItem="yau-Oc-0uD" secondAttribute="trailing" constant="26" id="sgO-aJ-6FS"/>
                             <constraint firstItem="yau-Oc-0uD" firstAttribute="leading" secondItem="Plx-X0-qMN" secondAttribute="leading" constant="15" id="ybx-ix-xai"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="albumNameLabel" destination="fKT-Lu-x4D" id="hzH-H4-uuR"/>
+                        <outlet property="animatingIndicator" destination="fGc-ub-1qm" id="R8K-FD-il1"/>
                         <outlet property="artistNameLabel" destination="VS9-gk-5EK" id="Gec-qS-gYX"/>
+                        <outlet property="lyrics" destination="til-hn-Ate" id="DlX-UW-YEY"/>
                         <outlet property="trackImageView" destination="yau-Oc-0uD" id="x6b-WR-e45"/>
                         <outlet property="trackNameLabel" destination="lZb-ai-12y" id="jFi-9t-xZT"/>
                     </connections>

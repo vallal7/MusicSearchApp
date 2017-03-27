@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Service.h"
-@interface SearchLyricsService :Service
--(void)callLyricsService:(NSArray*)searchParameters callBack:(void (^)(NSMutableArray *array))updateUI;
+#import "LyricsModel.h"
+
+@interface SearchLyricsService :Service<NSXMLParserDelegate>
+-(void)callLyricsService:(NSArray*)searchParameters callBack:(void (^)(LyricsModel *lyrics))updateUI;
 
 @end

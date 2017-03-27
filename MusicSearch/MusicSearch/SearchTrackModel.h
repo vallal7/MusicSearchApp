@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@interface TrackModel : NSObject
+@interface SearchTrackModel : NSObject
 -(void)parseData:(NSDictionary *)responseDict;
 @property(nonatomic,retain)NSString *trackName;
 @property(nonatomic,retain)NSString *albumName;

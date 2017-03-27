@@ -7,7 +7,7 @@
 //
 
 #import "SearchTrackService.h"
-#import "TrackModel.h"
+#import "SearchTrackModel.h"
 #import "ApiConfigProvider.h"
 
 @implementation SearchTrackService
@@ -17,12 +17,11 @@
     NSURL *url = [ApiConfigProvider configureTrackSearch:searchParameters];
     
    self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        NSLog(@"Data task json - %@",json);
+       NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
        NSMutableArray *resultArray = [NSMutableArray array];
-       NSArray *resultsArray = [json valueForKey:@"results"];
+       NSArray *resultsArray = [json valueForKey:TrackResultsDictKey];
        for (NSDictionary *dict in resultsArray) {
-           TrackModel *track = [[TrackModel alloc]init];
+           SearchTrackModel *track = [[SearchTrackModel alloc]init];
            [track parseData:dict];
            [resultArray addObject:track];
        }

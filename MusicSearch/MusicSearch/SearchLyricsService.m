@@ -9,43 +9,54 @@
 #import "SearchLyricsService.h"
 #import "ApiConfigProvider.h"
 
+@interface SearchLyricsService ()
+{
+    BOOL trackLyrics;
+    NSString *lyricsString;
+    void (^updateUIBlock)(LyricsModel *lyrics);
+}
+@end
+
 @implementation SearchLyricsService
 
--(void)callLyricsService:(NSArray*)searchParameters callBack:(void (^)(NSMutableArray *array))updateUI {
+-(void)callLyricsService:(NSArray*)searchParameters callBack:(void (^)(LyricsModel *lyrics))updateUI {
     {
         NSURL *url = [ApiConfigProvider configureLyricsSearch:searchParameters];
         
         self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-            NSString *str = [NSString stringWithUTF8String:[data bytes]];
-
-            //NSString *str2 = @"8+9=17";
-            NSRange equalRange = [str rangeOfString:@"{" options:NSBackwardsSearch];
-            if (equalRange.location != NSNotFound) {
-                str = [str substringFromIndex:equalRange.location + equalRange.length -1];
-            }
+            updateUIBlock = updateUI;
             
-            NSRange pos = [str rangeOfString:@"@"];
-            if (pos.location != NSNotFound && pos.location+1 != NSNotFound) {
-                str = [str substringToIndex:pos.location+1];
-            }
-            NSError *err2;
-            NSData *data2 = [str dataUsingEncoding:NSUTF8StringEncoding];
-            id json2 = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:&err2];
-            NSLog(@"Data task json - %@",json2);
-            
-            NSMutableArray *resultArray = [NSMutableArray array];
-           /*
-            NSArray *resultsArray = [json valueForKey:@"results"];
-            for (NSDictionary *dict in resultsArray) {
-                TrackModel *track = [[TrackModel alloc]init];
-                [track parseData:dict];
-                [resultArray addObject:track];
-            }
-            */
-            updateUI(resultArray);
+            NSXMLParser *myParser = [[NSXMLParser alloc] initWithData:data];
+            [myParser setDelegate:self];
+            [myParser setShouldResolveExternalEntities: YES];
+            [myParser parse];
         }];
         [self.dataTask resume];
+    }
+}
+
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict{
+    if([elementName caseInsensitiveCompare:XMLLyricsTag] == NSOrderedSame) {
+        trackLyrics = true;
+    } else {
+        trackLyrics = false;
+    }
+}
+
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+    if([elementName caseInsensitiveCompare:XMLLyricsTag] == NSOrderedSame) {
+        trackLyrics = false;
+        LyricsModel *lyrics = [[LyricsModel alloc]init];
+        [lyrics parseData:lyricsString];
+        updateUIBlock(lyrics);
+    }
+}
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+    if(trackLyrics) {
+        if (lyricsString == nil){
+            lyricsString = [[NSString alloc]init];
+        }
+        lyricsString = [lyricsString stringByAppendingString:string];
     }
 }
 
