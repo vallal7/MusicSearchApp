@@ -19,13 +19,19 @@
    self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
        NSMutableArray *resultArray = [NSMutableArray array];
-       NSArray *resultsArray = [json valueForKey:TrackResultsDictKey];
-       for (NSDictionary *dict in resultsArray) {
-           SearchTrackModel *track = [[SearchTrackModel alloc]init];
-           [track parseData:dict];
-           [resultArray addObject:track];
+       @try {
+           NSArray *resultsArray = [json valueForKey:TrackResultsDictKey];
+           for (NSDictionary *dict in resultsArray) {
+               SearchTrackModel *track = [[SearchTrackModel alloc]init];
+               [track parseData:dict];
+               [resultArray addObject:track];
+           }
+           updateUI(resultArray);
+       } @catch (NSException *exception) {
+           NSLog(@"Track Service Exception %@",exception);
+       } @finally {
+           NSLog(@"Track Service Failed");
        }
-        updateUI(resultArray);
     }];
     [self.dataTask resume];
 }
