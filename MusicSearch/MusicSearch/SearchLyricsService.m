@@ -25,11 +25,17 @@
         
         self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             updateUIBlock = updateUI;
-            
-            NSXMLParser *myParser = [[NSXMLParser alloc] initWithData:data];
-            [myParser setDelegate:self];
-            [myParser setShouldResolveExternalEntities: YES];
-            [myParser parse];
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if(httpResponse.statusCode == 200) {
+                NSXMLParser *myParser = [[NSXMLParser alloc] initWithData:data];
+                [myParser setDelegate:self];
+                [myParser setShouldResolveExternalEntities: YES];
+                [myParser parse];
+            } else {
+                LyricsModel *lyrics = [[LyricsModel alloc]init];
+                [lyrics parseData:LyricsNotFoundString];
+                updateUIBlock(lyrics);
+            }
         }];
         [self.dataTask resume];
     }
